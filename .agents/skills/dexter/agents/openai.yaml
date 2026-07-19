@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dexter NetOps"
+  short_description: "Run guarded AI-assisted NetOps workflows"
+  default_prompt: "Use $dexter to inspect network state and safely complete the requested NetOps workflow."
+
+policy:
+  allow_implicit_invocation: true

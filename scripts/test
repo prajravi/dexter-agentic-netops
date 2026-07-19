@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+python_bin="${DEXTER_PYTHON:-$repo_root/.venv/bin/python}"
+
+if [[ ! -x "$python_bin" ]]; then
+  echo "Dexter Python was not found at $python_bin." >&2
+  exit 2
+fi
+
+cd "$repo_root"
+exec "$python_bin" -m unittest discover -s tests -p 'test_*.py'
+
