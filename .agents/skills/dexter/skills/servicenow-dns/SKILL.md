@@ -25,11 +25,9 @@ Manages DNS Name configuration items in the dedicated ServiceNow development ins
 - Any FQDN conflict blocks the complete import before the first write, preventing partial creation.
 - Bulk import sorts by hostname and never deletes mappings absent from Catalyst Center.
 
-## Prerequisites
+## Runtime requirements
 
-1. Install the project with `.venv/bin/pip install -e .`.
-2. Configure the ServiceNow URL, allowed host, username, and password in the Dexter environment.
-3. Ensure the ServiceNow account can read and create records in `cmdb_ci_dns_name`.
+Use the ServiceNow settings documented in `.env.example`; the account must have the required DNS/IP CMDB table permissions.
 
 ## Commands
 

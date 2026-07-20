@@ -15,9 +15,9 @@ Query the configured ServiceNow instance through its REST Table API. Prefer dete
 - Never put credentials in commands or responses.
 - On `403`, report insufficient permission and stop. Never retry against another instance.
 
-## Prerequisites
+## Runtime requirements
 
-Create `.env` from `.env.example`, configure the ServiceNow URL, allowed host, username, and password, then install with `.venv/bin/pip install -e .`.
+Use the ServiceNow connection and host allowlist documented in `.env.example`.
 
 ## Commands
 

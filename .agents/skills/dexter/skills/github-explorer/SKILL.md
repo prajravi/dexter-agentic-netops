@@ -16,12 +16,9 @@ Use the GitHub REST API to inspect public or token-accessible repositories for `
 - Read authentication only from the Dexter environment; `GITHUB_TOKEN` is optional for public repositories.
 - Never expose a token or include it in command arguments.
 
-## Prerequisites
+## Runtime requirements
 
-1. Create `.env` from `.env.example` at the repository root.
-2. Set `GITHUB_OWNER` to the single account or organization allowed for the demo.
-3. Optionally set `GITHUB_TOKEN` for higher rate limits or authorized private repositories.
-4. Install the project with `.venv/bin/pip install -e .`.
+Use the GitHub owner and optional token configured through the variables documented in `.env.example`.
 
 ## Commands
 
@@ -51,7 +48,7 @@ Run from the repository root:
 
 Accept a repository name or `configured-owner/name` for `--repo`; reject every other owner. Bound `--limit` to 1–100. Treat `--path` as repository-relative and reject traversal.
 
-## Demonstration workflow
+## Recommended workflow
 
 1. Run `list-repos` and select a repository.
 2. Run `get-repo`, `get-readme`, and `list-contents` to explain its metadata and structure.

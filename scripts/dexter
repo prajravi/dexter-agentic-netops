@@ -13,13 +13,14 @@ fi
 workflow="${1:-}"
 if [[ -z "$workflow" ]]; then
   echo "Usage: scripts/dexter <workflow> <command> [options]" >&2
-  echo "Workflows: catalyst-center, github, servicenow-query, servicenow-dns, servicenow-csv-dns, servicenow-network-gear" >&2
+  echo "Workflows: catalyst-center, mist, github, servicenow-query, servicenow-dns, servicenow-csv-dns, servicenow-network-gear" >&2
   exit 2
 fi
 shift
 
 case "$workflow" in
   catalyst-center) skill="catalyst-center" ;;
+  mist|juniper-mist) skill="juniper-mist" ;;
   github|github-explorer) skill="github-explorer" ;;
   servicenow-query) skill="servicenow-query" ;;
   servicenow-dns) skill="servicenow-dns" ;;
@@ -33,4 +34,3 @@ esac
 
 handler="$repo_root/.agents/skills/dexter/skills/$skill/scripts/handler.py"
 exec "$python_bin" "$handler" "$@"
-

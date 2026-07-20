@@ -9,11 +9,9 @@ Read a remote CSV through the bundled `github-explorer` workflow and create mapp
 
 This creates ServiceNow CMDB DNS Name CIs, IP Address CIs, and junction records. It does not update an authoritative DNS server and does not create real A, AAAA, or PTR records.
 
-## Prerequisites
+## Runtime requirements
 
-1. Configure both existing GitHub and ServiceNow skills.
-2. Install the project with `.venv/bin/pip install -e .`.
-3. Configure `GITHUB_OWNER` and the ServiceNow host allowlist in the Dexter environment.
+Use the GitHub and ServiceNow settings documented in `.env.example`.
 
 ## Mandatory Small-Model Algorithm
 

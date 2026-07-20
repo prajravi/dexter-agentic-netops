@@ -49,7 +49,7 @@ class PortBounceTests(unittest.TestCase):
             "portMode": "access",
             "adminStatus": "UP",
             "status": "up",
-            "description": "Demo endpoint",
+            "description": "Example endpoint",
         }
         self.api.devices.get_device_list.return_value = {
             "response": [{"id": "device-1", "hostname": "switch-01"}]

@@ -1,6 +1,6 @@
 ---
 name: catalyst-center
-description: "Dexter queries Cisco Catalyst Center for inventory, device details, interfaces, sites, assurance health, issues, clients, templates, physical topology, CDP neighbors, and read-only show commands. Use when: demonstrating AI-assisted Catalyst Center operations or investigating network state."
+description: "Dexter queries Cisco Catalyst Center for inventory, device details, interfaces, sites, assurance health, issues, clients, templates, physical topology, CDP neighbors, and read-only show commands. Use when inspecting or investigating Catalyst Center network state."
 ---
 
 # Cisco Catalyst Center
@@ -41,11 +41,9 @@ Dexter must not alter Catalyst Center configuration except through the guarded `
 - `port-bounce` rejects virtual, routed, and trunk interfaces; only physical access ports are permitted.
 - If the restore-to-UP task fails, Dexter must report that manual intervention is immediately required.
 
-## Prerequisites
+## Runtime requirements
 
-1. Create `.env` from `.env.example` at the repository root.
-2. Set `CATC_CONTROLLER`, `CATC_USERNAME`, and `CATC_PASSWORD`.
-3. Install the project dependencies with `.venv/bin/pip install -e .`.
+Use the Catalyst Center connection configured through the variables documented in `.env.example`.
 
 ## Commands
 

@@ -112,7 +112,7 @@ Keep inventory collection in the Catalyst Center skill and ServiceNow mutation i
 
 # Create a CI and hardware asset after approval.
 ./scripts/dexter servicenow-network-gear \
-  create-gear --hostname sw1 --ip 192.0.2.10 --serial DEMO123 \
+  create-gear --hostname sw1 --ip 192.0.2.10 --serial EXAMPLE123 \
   --platform C9KV-UADP-8P --software 17.12.1 --mac 52:54:00:00:00:01 \
   --catalyst-id 00000000-0000-4000-8000-000000000001 --confirm --pretty
 

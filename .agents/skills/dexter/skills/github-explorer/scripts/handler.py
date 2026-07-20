@@ -107,7 +107,7 @@ def _request(path: str, params: Optional[dict[str, Any]] = None) -> Any:
     headers = {
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
-        "User-Agent": "github-customer-showcase",
+        "User-Agent": "dexter-github-explorer",
     }
     if token:
         headers["Authorization"] = f"Bearer {token}"
@@ -126,7 +126,7 @@ def _repo_path(repo: str, suffix: str = "") -> str:
 
 
 def list_repos(limit: int = DEFAULT_LIMIT) -> dict[str, Any]:
-    """List repositories owned by the configured showcase account."""
+    """List repositories owned by the configured account."""
     owner, _ = _load_configuration()
     data = _request(
         f"/users/{quote(owner, safe='')}/repos",
@@ -186,7 +186,7 @@ def _decode_content(item: dict[str, Any]) -> dict[str, Any]:
     truncated = len(raw) > MAX_TEXT_BYTES
     selected = raw[:MAX_TEXT_BYTES]
     if b"\x00" in selected:
-        raise ValueError("Binary files are not returned by this showcase skill.")
+        raise ValueError("Binary files are not returned by this skill.")
     return {
         "name": item.get("name"), "path": item.get("path"), "sha": item.get("sha"),
         "size": item.get("size"), "html_url": item.get("html_url"),
@@ -306,7 +306,7 @@ COMMANDS = {
 
 
 def handle_command(command: str, **kwargs: Any) -> dict[str, Any]:
-    """Normalize and dispatch a read-only GitHub showcase command."""
+    """Normalize and dispatch a read-only GitHub command."""
     normalized = (command or "").strip().lower().replace("_", "-")
     handler = COMMANDS.get(normalized)
     if handler is None:
@@ -349,8 +349,8 @@ def handle_command(command: str, **kwargs: Any) -> dict[str, Any]:
 
 
 def _cli(argv: Optional[list[str]] = None) -> int:
-    """Run the GitHub showcase CLI."""
-    parser = argparse.ArgumentParser(description="Read-only GitHub customer showcase handler")
+    """Run the GitHub explorer CLI."""
+    parser = argparse.ArgumentParser(description="Read-only GitHub explorer handler")
     parser.add_argument("command", choices=sorted(COMMANDS))
     parser.add_argument("--repo", help="Repository name or configured-owner/name")
     parser.add_argument("--path", help="Repository-relative file or directory path")
